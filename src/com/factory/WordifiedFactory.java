@@ -20,6 +20,7 @@ public class WordifiedFactory {
 
 
 
+    //Uncomment to support different output type
 
     /**
      * This method would be of importance in future releases when output type is passed

@@ -13,6 +13,9 @@ import java.util.logging.Logger;
  * The following class provides a map and methods to populate it
  * The map, rootNumberMap is populated from appropriate rootNumberProperties file depending on the language selected (default english)
  * The rootNumberProperties file contains mapping of number to its word names in the language.
+ *
+ * The class also provides basic sentence connector properties for a language (and/negative/spaces) and methods to load them from properties file too
+ *
  */
 
 public abstract class RootMaps {
