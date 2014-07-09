@@ -1,0 +1,101 @@
+                                                        1ToOne
+
+Author
+----------
+1) Mukul Goel (email: goel.mukul1989@gmail.com)
+
+Project
+-----------------------
+This is a java project and uses no external libraries except JUnit for unit testing
+Min SDK : Java 1.6
+JUnit version: 3.8
+
+Package structure and classes
+----------------------
+com.commons: this package contains the files that are/will be common to all languages
+ ----| Classes:
+                RootMaps: This is an abstract class and is extended by each implementation of the WordifiedNumber interface
+                          This class provides other classes with a HashMap which contains mapping between a number and its word
+                WordifiedNumber: This is an interface and list one method toWords(). Each language converter implements this
+                                  interface and provides language specific implementation.
+
+com.wordifiedclient: This package contains the client classes
+ ----| Classes:
+                WordifiedNumberClient: This class acts as a client for the program and consumes the toWords() method
+
+com.wordified: This package contains all the implementation code segmented in subpackages by languages
+
+-----| Subpackage: com.wordified.english: This package contains all classes/files that provide english implementation code for the WordfiedNumber interface
+                  --------| Subpackages: com.wordified.english.main: Contains class EnglishWordifiedNumber which is english language implementation of the WordifiedNumber interface
+                                         com.wordified.english.test: Contains class EnglishWordifiedNumberTest which is JUnit test case for the EnglishWordifiedNumber class
+
+-----| Subpackage: com.wordified.messages: This package contains language data grouped by language in subpackages. This data is in form of properties files and provide key value pairs of numbers and connector strings and their language specific words.
+                  --------| subpackage: com.wordified.messages.english: This subpackage contains all properties files consumed by the english language implementation
+                                         -------| Files:
+                                                        english_1.properties: This file contains key value pair of numbers(1,2,3 etc) and their english words(one, two,three etc)
+                                                        english_2.properties: This file contails key value pair of numbers(1,2,3 etc) and their english words in second format (dudodecimal format i.e. First, second, third etc)
+                                                        englishGeneralWords.properties: This file contains key value pairs for general sentence information used by english languges such as (and, negative, space etc format)
+
+com.factory: This package contains a factory class WordifiedFactory, this class provides static factory method. That
+             takes in argument as language and returns appropriate object.
+
+
+Terms used in the program that need explanation
+------------------------------
+
+outputType: As per the requirement specification, The program design should enable for different output type. This I have
+            represented with the help of an outputType flag.
+            =1 means present format
+            =2 would mean format for next release
+
+
+Adding support for more languages
+-------------------------------------
+The code currently supports only English but is open to extension for more languages
+
+During my research I found out that there can not be one algorithm for each language hence
+to add support for more languages would require extending the RootMaps and implementing the WordifiedNumber interface
+
+Each language has its own format eg:
+In English: 21 = Twenty one
+                 (Twenty and one)
+In Spanish: 21 = veinte uno
+                 (veinte and uno)
+
+In English : 23 = Twenty three
+                  (Twenty and three)
+Whereas in Spanish 23 = (veintitrés)
+
+So we can see that the english algorithm can not be applied to the spanish translation
+
+But the system is open to extension i.e. we can implement the WordifiedNumber interface and add support for any number of languages
+
+
+To Add new language support
+--------------------------------------------
+1) Create language data: Create a package: com.wordified.messages.langaugename
+                         Create two properties file
+                         1) languagename_1.properteis: configure what 1,2,3, etc are called in the language
+                         2) languagenameGeneralWords.properties: Configure spacing, negative, and characters in the language
+2) Create implementation algorithm: Create a package: com.wordified.languagename.main
+                                    1) in this package create a class which extends the class com.commons.RootMaps and implements the interface com.commons.WordifiedNumber
+                                    Here in provide the implementation for the toWords() method
+
+3) Register new implementation in the Factory: Go to class com.factory.wordifiedFactory and register the new class as per business rules
+
+4) Write test case: Create package com.wordified.languagename.test
+                                    1) Write JUnit test case for the class created in step2 and validate
+
+
+
+Add Support for different outputType
+-----------------------------------------------
+To support new output format as per the specification which is part of the next release.
+The design is open and we can easily extend a current implementation to add the support
+
+The method formNumberWords() in class EnglishWordifiedNumber is the core of the algorithm
+
+To add support we need to
+1) uncomment the marked code
+2) output type flag will provide switch functionality to pick new properties file
+3) the method formNumberWords() needs to be overridden to add support
