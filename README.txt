@@ -26,17 +26,34 @@ Eg:
 hundred and eighty one
  etc..
 
+
+Features
+------------------------
+Converts integer number to its sentence representation
+Converts negative number to sentence representation as well (Test cases added)
+
 The Latest Version
 ----------------------
 
 Details of the project and the latest version can be found at:
-https://gist.github.com/mukulgoel1989/5c65284ff023bfc75e54
+
+https://github.com/mukulgoel1989/1ToOne
 
 
 Installation
 -----------------------
 No installation is required. It is a java program and can be compiled and executed on any Java 1.6 or later JVM
 
+
+Usage
+-----------------------
+WordifiedNumberClient class is the client and consumes the methods provided by the class
+This class has the main method and expects the user to enter the langauge name at run time
+
+Steps
+1) Run the WordifiedNumberClient class
+2) When asked for langauge input enter the language (Supported language(s) : English))
+3) Result is printed to screen.
 
 Upcoming Releases
 --------------------
@@ -62,5 +79,6 @@ Support to print output in following format to be added
  Given 21 output twenty first
  Given 105 output one hundred and fifth
  etc
+
 
 

@@ -48,6 +48,9 @@ outputType: As per the requirement specification, The program design should enab
             =1 means present format
             =2 would mean format for next release
 
+This variable contributes to the properties file naming convention. language specific properties files are named as:
+            language_outputType.properties
+
 
 Adding support for more languages
 -------------------------------------

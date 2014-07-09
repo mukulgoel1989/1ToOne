@@ -2,7 +2,6 @@ package com.wordfifiedclient;
 
 import com.commons.WordifiedNumber;
 import com.factory.WordifiedFactory;
-import com.wordified.english.main.EnglishWordifiedNumber;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -55,15 +54,22 @@ class WordifiedNumberClient {
 
         if((wordifiedNumber)!=null){
 
-                System.out.println(wordifiedNumber.toWords(1000100));
-                System.out.println(wordifiedNumber.toWords(0));
-                System.out.println(wordifiedNumber.toWords(105));
-                System.out.println(wordifiedNumber.toWords(110105));
-                System.out.println(wordifiedNumber.toWords(1000099));
-                System.out.println(wordifiedNumber.toWords(1000100));
-                System.out.println(wordifiedNumber.toWords(56945781));
-                System.out.println(wordifiedNumber.toWords(999999999));
-                System.out.println(wordifiedNumber.toWords(1000000000));
+                System.out.println("1000100 in " + client.selectedLanguage + " is = " + wordifiedNumber.toWords(1000100));
+                System.out.println("0 in " + client.selectedLanguage + " is = " + wordifiedNumber.toWords(0));
+                System.out.println("105 in " + client.selectedLanguage + " is = " + wordifiedNumber.toWords(105));
+                System.out.println("110105 in " + client.selectedLanguage + " is = " + wordifiedNumber.toWords(110105));
+                System.out.println("1000099 in " + client.selectedLanguage + " is = " + wordifiedNumber.toWords(1000099));
+                System.out.println("2000100 in " + client.selectedLanguage + " is = " + wordifiedNumber.toWords(2000100));
+                System.out.println("56945781 in " + client.selectedLanguage + " is = " + wordifiedNumber.toWords(56945781));
+                System.out.println("999999999 in " + client.selectedLanguage + " is = " + wordifiedNumber.toWords(999999999));
+                System.out.println("1000000000 in " + client.selectedLanguage + " is = " + wordifiedNumber.toWords(1000000000));
+
+
+                System.out.println("-2000100 in " + client.selectedLanguage + " is = " + wordifiedNumber.toWords(-2000100));
+                System.out.println("-56945781 in " + client.selectedLanguage + " is = " + wordifiedNumber.toWords(-56945781));
+                System.out.println("-999999999 in " + client.selectedLanguage + " is = " + wordifiedNumber.toWords(-999999999));
+                System.out.println("-1000000000 in " + client.selectedLanguage + " is = " + wordifiedNumber.toWords(-1000000000));
+
         }else{
             System.out.println(client.selectedLanguage + " is not yet supported");
         }
