@@ -74,9 +74,9 @@ public class EnglishWordifiedNumber extends RootMaps implements WordifiedNumber 
      */
     private String formNumberWord(int number) {
         StringBuilder result = new StringBuilder();
-        int digitIndex = 9;
-        while(digitIndex > 1){
-            int digitValue = (int)Math.pow(10, digitIndex);
+        int indexOfDigit = 9;
+        while(indexOfDigit > 1){
+            int digitValue = (int)Math.pow(10, indexOfDigit);
             if(number/digitValue >0){
                 result.append(toWords(number / digitValue));
                 result.append(spaceString);
@@ -86,14 +86,14 @@ public class EnglishWordifiedNumber extends RootMaps implements WordifiedNumber 
                     result.append(spaceString);
                 }
             }
-            if(digitIndex==9){
-                digitIndex=6;
-            }else if(digitIndex ==6){
-                digitIndex = 3;
-            }else if(digitIndex ==3){
-                digitIndex = 2;
+            if(indexOfDigit==9){
+                indexOfDigit=6;
+            }else if(indexOfDigit ==6){
+                indexOfDigit = 3;
+            }else if(indexOfDigit ==3){
+                indexOfDigit = 2;
             }else {
-                digitIndex = 0;
+                indexOfDigit = 0;
             }
         }
         if(number > 0) {

@@ -70,7 +70,6 @@ public abstract class RootMaps {
      * in @rootNumberProperties variable
      */
     private void getPropertiesRef(){
-
         if(rootNumberProperties ==null ){
             rootNumberProperties = new Properties();
             try{

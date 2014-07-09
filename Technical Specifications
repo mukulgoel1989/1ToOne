@@ -10,12 +10,28 @@ This is a java project and uses no external libraries except JUnit for unit test
 Min SDK : Java 1.6
 JUnit version: 3.8
 
+Design
+------------------------
+The program uses two GoF patters
+1) Factory method: This pattern is used to provide appropriate object to client and hiding implementation classes and logic and making it generic
+2) Strategy pattern: As we have an interface wordifiedNumber and this can have any number of implementations, one for each language. Each these implementations would be
+                     separate algorithm. Therefore strategy pattern was used so that we can switch between different algorithms.
+
+
 Package structure and classes
 ----------------------
 com.commons: this package contains the files that are/will be common to all languages
  ----| Classes:
                 RootMaps: This is an abstract class and is extended by each implementation of the WordifiedNumber interface
                           This class provides other classes with a HashMap which contains mapping between a number and its word
+                          This class also provides with common sentence connectors and methods to load these from generalPropertiesFile as well.
+
+                          This class also provides method to get value from the HashMap
+                          
+                          These methods are supposed to be used by concrete implementation classes and provide them with data
+                          and methods to load the data and access the data
+
+
                 WordifiedNumber: This is an interface and list one method toWords(). Each language converter implements this
                                   interface and provides language specific implementation.
 
@@ -26,7 +42,7 @@ com.wordifiedclient: This package contains the client classes
 com.wordified: This package contains all the implementation code segmented in subpackages by languages
 
 -----| Subpackage: com.wordified.english: This package contains all classes/files that provide english implementation code for the WordfiedNumber interface
-                  --------| Subpackages: com.wordified.english.main: Contains class EnglishWordifiedNumber which is english language implementation of the WordifiedNumber interface
+                  --------| Subpackages: com.wordified.english.main: Contains class EnglishWordifiedNumber which is english language implementation of the WordifiedNumber interface and provides the algorithm to convert input number to english sentence
                                          com.wordified.english.test: Contains class EnglishWordifiedNumberTest which is JUnit test case for the EnglishWordifiedNumber class
 
 -----| Subpackage: com.wordified.messages: This package contains language data grouped by language in subpackages. This data is in form of properties files and provide key value pairs of numbers and connector strings and their language specific words.
