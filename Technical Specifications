@@ -27,7 +27,7 @@ com.commons: this package contains the files that are/will be common to all lang
                           This class also provides with common sentence connectors and methods to load these from generalPropertiesFile as well.
 
                           This class also provides method to get value from the HashMap
-                          
+
                           These methods are supposed to be used by concrete implementation classes and provide them with data
                           and methods to load the data and access the data
 
