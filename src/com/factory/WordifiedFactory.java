@@ -5,6 +5,9 @@ import com.wordified.english.main.EnglishWordifiedNumber;
 
 /**
  * Created by mukul on 09/07/14.
+ *
+ * The following class provides a factory method which constructs appropriate object and returns to the calling class
+ *
  */
 public class WordifiedFactory {
 
@@ -16,12 +19,22 @@ public class WordifiedFactory {
     }
 
 
+
+
+    /**
+     * This method would be of importance in future releases when output type is passed
+     * @param selectedLanguage
+     * @param selectedOutputType
+     * @return
+     */
+/*
     public static WordifiedNumber getWordifiedNumber(String selectedLanguage, String selectedOutputType ){
         if(selectedLanguage.equalsIgnoreCase("English")){
             return new EnglishWordifiedNumber(selectedOutputType);
         }else
             return null;
     }
+*/
 
 
 
