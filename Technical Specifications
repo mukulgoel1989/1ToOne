@@ -87,7 +87,7 @@ Whereas in Spanish 23 = (veintitrés)
 
 So we can see that the english algorithm can not be applied to the spanish translation
 
-But the system is open to extension i.e. we can implement the WordifiedNumber interface and add support for any number of languages
+But the system is open to extension i.e. we can implement the WordifiedNumber interface and extend the RootMaps class and add support for any number of languages
 
 
 To Add new language support
@@ -115,6 +115,7 @@ The design is open and we can easily extend a current implementation to add the 
 The method formNumberWords() in class EnglishWordifiedNumber is the core of the algorithm
 
 To add support we need to
-1) uncomment the marked code
-2) output type flag will provide switch functionality to pick new properties file
-3) the method formNumberWords() needs to be overridden to add support
+1) uncomment the marked code  ("//Uncomment to support different output type")
+2) modify client to use the with outputType factory method
+3) output type flag will provide switch functionality to pick new properties file
+4) implement code at line 134:EnglishWordifiedNumber.java to use the indexDigit to form words for type2 format (TODO next release)
