@@ -15,6 +15,7 @@ public class EnglishWordifiedNumberTest extends TestCase {
 
         WordifiedNumber wordifiedNumber = new EnglishWordifiedNumber();
 
+
         Assert.assertEquals("one", wordifiedNumber.toWords(1));
         Assert.assertEquals("twenty one", wordifiedNumber.toWords(21));
         Assert.assertEquals("one hundred and five", wordifiedNumber.toWords(105));
@@ -24,6 +25,8 @@ public class EnglishWordifiedNumberTest extends TestCase {
         Assert.assertEquals("one million one hundred", wordifiedNumber.toWords(1000100));
         Assert.assertEquals("fifty six million nine hundred and forty five thousand seven hundred and eighty one", wordifiedNumber.toWords(56945781));
 
+
+        Assert.assertEquals("zero", wordifiedNumber.toWords(0));
 
         Assert.assertEquals("negative one", wordifiedNumber.toWords(-1));
         Assert.assertEquals("negative twenty one", wordifiedNumber.toWords(-21));

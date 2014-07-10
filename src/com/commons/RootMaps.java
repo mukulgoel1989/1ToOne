@@ -26,6 +26,8 @@ public abstract class RootMaps {
     protected static final String SPACE_STRING_KEY = "SPACE";
     private final String BASE_PATH = "/com/wordified/messages/";
 
+/*    private final Integer[] rootNumKeysType2 = {21,22,23,24,25,26,27,28,29,31,32};*/  //Uncomment to support Type 2 output
+
     private static final Logger log = Logger.getLogger("RootMaps");
 
 
@@ -118,4 +120,5 @@ public abstract class RootMaps {
     protected String getRootNumberWord(int number){
         return rootNumberMap.get(Integer.valueOf(number));
     }
+
 }

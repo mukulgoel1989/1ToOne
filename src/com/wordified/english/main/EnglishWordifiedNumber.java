@@ -56,7 +56,7 @@ public class EnglishWordifiedNumber extends RootMaps implements WordifiedNumber 
     public String toWords(int number){
 
         if(number==0){  //Check if number is 0
-            return getRootNumberWord(0);
+            return getRootNumberWord(number);
         }
 
         if(number < 0){  //Check if number is a negative number
@@ -74,18 +74,27 @@ public class EnglishWordifiedNumber extends RootMaps implements WordifiedNumber 
      */
     private String formNumberWord(int number) {
         StringBuilder result = new StringBuilder();
-        int indexOfDigit = 9;
+
+        int indexOfDigit = 9;   //Start with index equal to Billion
+
         while(indexOfDigit > 1){
             int digitValue = (int)Math.pow(10, indexOfDigit);
-            if(number/digitValue >0){
-                result.append(toWords(number / digitValue));
-                result.append(spaceString);
-                result.append(getRootNumberWord(digitValue));
-                number = number % digitValue;
-                if(number > 0) {
+
+            if(number/digitValue >0){ //Check if the number lies in the this digitValue if yes then
+
+                result.append(toWords(number / digitValue));    //Get word for the digit at the index eg: one,two,three etc
+                result.append(spaceString);                     //Append space
+                result.append(getRootNumberWord(digitValue));   //Get word for the index position eg: billion, million, etc
+
+                number = number % digitValue;  //Reduce number by taking remainder
+
+                if(number > 0) { //if more places
                     result.append(spaceString);
                 }
             }
+
+            //The if/else/if statements reduce index to next stage
+
             if(indexOfDigit==9){
                 indexOfDigit=6;
             }else if(indexOfDigit ==6){
@@ -95,25 +104,46 @@ public class EnglishWordifiedNumber extends RootMaps implements WordifiedNumber 
             }else {
                 indexOfDigit = 0;
             }
-        }
-        if(number > 0) {
-            if (result.length() > 0) {
+        }  //End While
+
+        if(number > 0) {  //if number is > 0
+            if (result.length() > 0) { //if already something in sentence, this will be false if number is less than 100
                 result.append(andString);
                 result.append(spaceString);
             }
-            if (number < 20) {
-                result.append(getRootNumberWord(number));
+            if (number < 20) { //Number below 20 have unique names
+                result.append(getRootNumberWord(number)); //if so, get the word and append to result
             } else {
-                result.append(getRootNumberWord((number / 10) * 10));
-                int numberModTen = number % 10;
-                if (numberModTen > 0) {
+                result.append(getRootNumberWord((number / 10) * 10));  //get the word for the tens place eg: if number is 99 this would give "ninety"
+                int numberModTen = number % 10; //Get the number at unit place
+                if (numberModTen > 0) { //if not zero
                     result.append(spaceString);
-                    result.append(getRootNumberWord(numberModTen));
+                    result.append(getRootNumberWord(numberModTen)); //Get word for unit place
                 }
             }
         }
     return result.toString();
     }
+
+/*
+   Uncomment the below method to support type 2 output
+*/
+
+/*
+    protected String getRootNumberWord(int number, int indexOfDigit){
+        StringBuilder numberWord = new StringBuilder();
+        if(number<20){
+            if(outputType.equals("2")&& indexOfDigit==0){
+                numberWord.append(rootNumberMap.get(Integer.valueOf(rootNumKeysType2[number])));
+
+            }
+        }else{
+            numberWord.append(getRootNumberWord(number));
+        }
+        return numberWord.toString();
+    }
+*/
+
 
 }
 

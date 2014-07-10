@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 class WordifiedNumberClient {
 
     private String selectedLanguage = "English";
-    /*private String selectedOutputType = "1";*/ //Uncomment to support different output type
+/*    private String selectedOutputType = "1";*/ //Uncomment to support different output type
 
     private static final Logger log = Logger.getLogger("WordifiedClient");
 
@@ -35,11 +35,11 @@ class WordifiedNumberClient {
            client.setSelectedLanguage(sc.next());
 
     //Uncomment to support different output type
+/*
 
-    /*
             System.out.println("Enter output type 1/2");
             client.selectedOutputType = sc.next();
-    */
+*/
 
        }catch(InputMismatchException IE){
 
