@@ -84,7 +84,7 @@ public class EnglishWordifiedNumber extends RootMaps implements WordifiedNumber 
 
                 result.append(toWords(number / digitValue));    //Get word for the digit at the index eg: one,two,three etc
                 result.append(spaceString);                     //Append space
-                result.append(getRootNumberWord(digitValue));   //Get word for the index position eg: billion, million, etc
+                result.append(getRootNumberWord(digitValue,indexOfDigit));   //Get word for the index position eg: billion, million, etc
 
                 number = number % digitValue;  //Reduce number by taking remainder
 
@@ -112,37 +112,30 @@ public class EnglishWordifiedNumber extends RootMaps implements WordifiedNumber 
                 result.append(spaceString);
             }
             if (number < 20) { //Number below 20 have unique names
-                result.append(getRootNumberWord(number)); //if so, get the word and append to result
+                result.append(getRootNumberWord(number,indexOfDigit)); //if so, get the word and append to result
             } else {
-                result.append(getRootNumberWord((number / 10) * 10));  //get the word for the tens place eg: if number is 99 this would give "ninety"
+                result.append(getRootNumberWord(((number / 10) * 10),indexOfDigit));  //get the word for the tens place eg: if number is 99 this would give "ninety"
                 int numberModTen = number % 10; //Get the number at unit place
                 if (numberModTen > 0) { //if not zero
                     result.append(spaceString);
-                    result.append(getRootNumberWord(numberModTen)); //Get word for unit place
+                    result.append(getRootNumberWord(numberModTen,indexOfDigit)); //Get word for unit place
                 }
             }
         }
     return result.toString();
     }
 
-/*
-   Uncomment the below method to support type 2 output
-*/
 
-/*
     protected String getRootNumberWord(int number, int indexOfDigit){
         StringBuilder numberWord = new StringBuilder();
-        if(number<20){
-            if(outputType.equals("2")&& indexOfDigit==0){
-                numberWord.append(rootNumberMap.get(Integer.valueOf(rootNumKeysType2[number])));
-
-            }
-        }else{
+        if(outputType.equals("1")) {
             numberWord.append(getRootNumberWord(number));
-        }
+        }else if(outputType.equals("2")){
+                //Code to get values for type 2 output
+            }
+
         return numberWord.toString();
     }
-*/
 
 
 }
