@@ -1,6 +1,14 @@
 
                                            1ToOne
 
+
+********Do read Technical Specifications section: Adding support for more languages
+                                                  To Add new language support
+                                                  Add Support for different outputType
+
+To understand how the project is open to extension from adding languages point of view and extending outputType as well
+
+
 Author
 --------------
 1) Mukul Goel (email: goel.mukul1989@gmail.com)
@@ -79,6 +87,3 @@ Support to print output in following format to be added
  Given 21 output twenty first
  Given 105 output one hundred and fifth
  etc
-
-
-

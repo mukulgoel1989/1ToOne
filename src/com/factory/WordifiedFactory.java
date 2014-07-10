@@ -11,8 +11,10 @@ import com.wordified.english.main.EnglishWordifiedNumber;
  */
 public class WordifiedFactory {
 
+    private static final String ENGLISH = "English";
+
     public static WordifiedNumber getWordifiedNumber(String selectedLanguage){
-        if(selectedLanguage.equalsIgnoreCase("English")){
+        if(selectedLanguage.equalsIgnoreCase(ENGLISH)){
             return new EnglishWordifiedNumber();
         }else
             return null;
@@ -28,10 +30,9 @@ public class WordifiedFactory {
      * @param selectedOutputType
      * @return
      */
-
 /*
     public static WordifiedNumber getWordifiedNumber(String selectedLanguage, String selectedOutputType ){
-        if(selectedLanguage.equalsIgnoreCase("English")){
+        if(selectedLanguage.equalsIgnoreCase(ENGLISH)){
             return new EnglishWordifiedNumber(selectedOutputType);
         }else
             return null;

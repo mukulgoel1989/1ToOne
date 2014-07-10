@@ -24,12 +24,12 @@ public abstract class RootMaps {
     protected static final String AND_STRING_KEY = "AND";
     protected static final String NEGATIVE_STRING_KEY = "NEGATIVE";
     protected static final String SPACE_STRING_KEY = "SPACE";
+    private static final String UNABLE_TO_LOAD_PROPERTIES_ERROR = "Unable to load properties ";
     private final String BASE_PATH = "/com/wordified/messages/";
 
 /*    private final Integer[] rootNumKeysType2 = {21,22,23,24,25,26,27,28,29,31,32};*/  //Uncomment to support Type 2 output
 
     private static final Logger log = Logger.getLogger("RootMaps");
-
 
     //A general properties file specifies values related to sentence connectors such as and/string etc
     protected String pathToGeneralProperties;
@@ -80,7 +80,7 @@ public abstract class RootMaps {
             try{
                 rootNumberProperties.load(Constants.class.getResourceAsStream(pathOfRootNumberPropertiesFile));
             }catch(Exception e){
-                log.log(Level.SEVERE, "Unable to load properties "+ pathOfRootNumberPropertiesFile);
+                log.log(Level.SEVERE, UNABLE_TO_LOAD_PROPERTIES_ERROR + pathOfRootNumberPropertiesFile);
             }
         }
     }
@@ -103,7 +103,7 @@ public abstract class RootMaps {
             try{
                 generalProperties.load(Constants.class.getResourceAsStream(pathToGeneralProperties));
             }catch(Exception e){
-                System.out.println("Unable to load " + pathToGeneralProperties);
+                log.log(Level.SEVERE, UNABLE_TO_LOAD_PROPERTIES_ERROR + pathToGeneralProperties);
                 System.exit(1);
             }
         }
