@@ -49,11 +49,11 @@ com.wordified: This package contains all the implementation code segmented in su
                   --------| subpackage: com.wordified.messages.english: This subpackage contains all properties files consumed by the english language implementation
                                          -------| Files:
                                                         english_1.properties: This file contains key value pair of numbers(1,2,3 etc) and their english words(one, two,three etc)
-                                                        english_2.properties: This file contails key value pair of numbers(1,2,3 etc) and their english words in second format (dudodecimal format i.e. First, second, third etc)
+                                                        english_2.properties: This file contails key value pair of numbers(1,2,3 etc) and their english words(one,two,three) and (0-9)  in second format (dudodecimal format i.e. Zeroth, First, second, third etc)
                                                         englishGeneralWords.properties: This file contains key value pairs for general sentence information used by english languges such as (and, negative, space etc format)
 
 com.factory: This package contains a factory class WordifiedFactory, this class provides static factory method. That
-             takes in argument as language and returns appropriate object.
+             takes in argument as language(/output type) and returns appropriate object.
 
 
 Terms used in the program that need explanation
@@ -119,3 +119,14 @@ To add support we need to
 2) modify client to use the with outputType factory method
 3) output type flag will provide switch functionality to pick new properties file
 4) implement code at line 134:EnglishWordifiedNumber.java to use the indexDigit to form words for type2 format (TODO next release)
+
+
+
+Commented code
+----------------------------------------------
+There is some portion of code commented out. This part of the code is meant to support different output type in next release.
+In Production level code for this release this commented code could be removed because it is not a good idea to have commented code in production version
+
+This code was originally put there to test and not removed to explain how to achieve different output type in upcoming release.
+
+
