@@ -62,12 +62,10 @@ Terms used in the program that need explanation
 outputType: As per the requirement specification, The program design should enable for different output type. This I have
             represented with the help of an outputType flag.
             =1 means present format
-            =2 would mean format expected for next release
+            =2 would mean format for next release
 
 This variable contributes to the properties file naming convention. language specific properties files are named as:
             language_outputType.properties
-
-language_outputType.properties
 
 
 Adding support for more languages
